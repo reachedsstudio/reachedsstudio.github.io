@@ -177,7 +177,7 @@
       img.decoding = "async";
       var cap = document.createElement("figcaption");
       cap.innerHTML =
-        "<span>PL. " + row.querySelector(".spec-num").textContent + "</span>" +
+        "<span>" + row.querySelector(".spec-num").textContent + "</span>" +
         "<span>" + row.querySelector(".spec-coord").textContent + "</span>";
       fig.appendChild(cap);
       fig.appendChild(img);

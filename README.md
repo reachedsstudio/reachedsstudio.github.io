@@ -6,7 +6,7 @@ Portfolio site for an architecture studio. Plain HTML, CSS and JS with no build 
 
 ```
 index.html            Home, laid out as a drawing sheet: manifesto, plate,
-                      specimen index (hover previews), material ticker, contact
+                      archive index (hover previews), material & acoustic specimen, contact
 project.html          Case-study page. Copy it for each project
 assets/css/style.css  All styles. Colour tokens are at the top (light and dark)
 assets/js/main.js     Theme toggle, mobile menu, header state, scroll reveals
