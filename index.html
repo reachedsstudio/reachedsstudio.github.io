@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Reached Studio — Architecture &amp; Interiors</title>
-  <meta name="description" content="Reached Studio is an architecture and interiors practice designing quiet, enduring buildings shaped by light, material and place." />
-  <meta name="theme-color" content="#f3f2ee" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)" />
-  <meta property="og:title" content="Reached Studio — Architecture &amp; Interiors" />
-  <meta property="og:description" content="Quiet, enduring buildings shaped by light, material and place." />
+  <title>Reached Studio — On light, form &amp; place</title>
+  <meta name="description" content="Reached Studio is an architecture practice working with light, form and place. An index of works, materials and correspondence." />
+  <meta name="theme-color" content="#0d0d0d" />
+  <meta property="og:title" content="Reached Studio — On light, form &amp; place" />
+  <meta property="og:description" content="An architecture practice working with light, form and place." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
@@ -26,33 +25,45 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Drawing sheet: faint grid, border and zone markers -->
+  <div class="sheet-grid" aria-hidden="true"></div>
+  <div class="sheet-frame" aria-hidden="true">
+    <div class="sheet-zones sheet-zones--top"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="sheet-zones sheet-zones--left"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+  </div>
+
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html" aria-label="Reached Studio, home">
-        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
           <rect x="2" y="2" width="20" height="20" />
           <path d="M2 14h12V2" />
         </svg>
         Reached Studio
       </a>
 
+      <div class="readout mono" aria-hidden="true">
+        <span><span class="dot"></span>Sheet <b data-sheet>A-000 Manifesto</b></span>
+        <span>EL <b data-elevation>+000.00</b></span>
+      </div>
+
       <nav class="nav" aria-label="Primary">
         <ul class="nav-links" id="nav-links">
-          <li><a href="#work">Work</a></li>
-          <li><a href="#studio">Studio</a></li>
-          <li><a href="#practice">Practice</a></li>
+          <li><a href="#manifesto">Manifesto</a></li>
+          <li><a href="#index">Index</a></li>
+          <li><a href="#materials">Materials</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="header-actions">
           <button class="icon-btn theme-toggle" type="button" aria-label="Toggle colour theme">
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" /></svg>
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" /></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
           </button>
           <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
             <span></span>
@@ -63,244 +74,220 @@
   </header>
 
   <main id="main">
-    <!-- Hero -->
-    <section class="hero container" aria-labelledby="hero-title">
-      <p class="label reveal">Architecture · Interiors · Urban Design</p>
-      <h1 class="hero-title reveal" id="hero-title" style="--delay: .08s">
-        Architecture shaped by light, material <em>&amp; place.</em>
+    <!-- § 00 Manifesto -->
+    <section class="hero container" id="manifesto" data-sheet="A-000 Manifesto" aria-labelledby="manifesto-title">
+      <div class="hero-meta mono reveal">
+        <span>§ 00 — Manifesto</span>
+        <span>Architecture · Interiors · Landscape</span>
+        <span>Rev. A</span>
+      </div>
+
+      <h1 class="manifesto reveal" id="manifesto-title">
+        <span class="line"><span class="line-inner"><sup>I</sup><strong>Light</strong> is our first material.</span></span>
+        <span class="line"><span class="line-inner"><sup>II</sup><strong>Form</strong> is how it is held.</span></span>
+        <span class="line"><span class="line-inner"><sup>III</sup><strong>Place</strong> is why it endures.</span></span>
       </h1>
+
       <div class="hero-foot">
-        <p class="hero-lede reveal" style="--delay: .16s">
-          We are a small studio designing quiet, enduring buildings — homes, workplaces and
-          public spaces that are calm to inhabit and careful with their surroundings.
-        </p>
-        <a class="btn reveal" href="#work" style="--delay: .24s">
-          View selected work
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" /></svg>
-        </a>
+        <div class="notes reveal">
+          <h2 class="mono">General notes</h2>
+          <ol>
+            <li>Every project begins with the path of the sun across the site, drawn before any wall.</li>
+            <li>Structure is expressed, never disguised. Materials are left to weather honestly.</li>
+          </ol>
+        </div>
+        <div class="notes reveal" style="--delay: .08s">
+          <h2 class="mono" aria-hidden="true">&nbsp;</h2>
+          <ol start="3" style="counter-reset: note 2">
+            <li>Rooms are measured by the body: thresholds, reveals and handrails are drawn at full size.</li>
+            <li>A building should belong to its ground, as though it had always been there.</li>
+          </ol>
+        </div>
+        <div class="north reveal" style="--delay: .16s" aria-hidden="true">
+          <svg viewBox="0 0 60 88" fill="none" stroke="currentColor" stroke-width="1">
+            <text x="30" y="10" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="currentColor" stroke="none">N</text>
+            <circle cx="30" cy="56" r="24" />
+            <path d="M30 22 L39 74 L30 66 Z" fill="currentColor" />
+            <path d="M30 22 L21 74 L30 66 Z" />
+          </svg>
+          <svg viewBox="0 0 150 40" fill="none" stroke="currentColor" stroke-width="1">
+            <rect x="1" y="14" width="24" height="6" fill="currentColor" />
+            <rect x="25" y="14" width="24" height="6" />
+            <rect x="49" y="14" width="48" height="6" fill="currentColor" />
+            <rect x="97" y="14" width="48" height="6" />
+            <g font-family="JetBrains Mono, monospace" font-size="8" fill="currentColor" stroke="none" text-anchor="middle">
+              <text x="4" y="32">0</text><text x="25" y="32">1</text><text x="49" y="32">2</text><text x="97" y="32">5</text><text x="142" y="32">10</text>
+              <text x="73" y="9">METRES</text>
+            </g>
+          </svg>
+        </div>
       </div>
     </section>
 
     <div class="container reveal">
-      <figure>
-        <div class="frame hero-media">
+      <figure class="plate">
+        <div class="dim mono" aria-hidden="true"><span>Plate 00 — 16 : 9</span></div>
+        <div class="frame plate-media">
           <img src="images/work/hero.jpg" alt="Bedroom with a timber parquet feature wall, moss-panelled wardrobe and herringbone floor" width="1920" height="1080" />
         </div>
-        <figcaption class="hero-caption">
+        <figcaption class="plate-caption mono">
+          <span>PL. 00</span>
           <span>Bedroom interior</span>
           <span>Render</span>
         </figcaption>
       </figure>
     </div>
 
-    <!-- Work -->
-    <section class="section" id="work" aria-labelledby="work-title">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="label reveal">Selected work</p>
-            <h2 class="section-title reveal" id="work-title" style="margin-top:1.25rem">Projects</h2>
-          </div>
-          <p class="section-intro reveal">
-            A selection of built and ongoing work across residential, cultural and
-            civic scales.
-          </p>
-        </div>
+    <!-- § 01 Specimen index -->
+    <section class="section container" id="index" data-sheet="A-101 Index" aria-labelledby="index-title">
+      <header class="sheet-head reveal">
+        <span class="mono">§ 01 — Index</span>
+        <h2 id="index-title">Index of works</h2>
+        <span class="mono">06 entries · 2023–2025</span>
+      </header>
 
-        <div class="work-grid">
-          <article class="work-card work-card--wide reveal">
-            <a href="project.html">
-              <div class="frame"><img class="is-drawing" src="images/work/courtyard-house.svg" alt="Elevation of a low courtyard house with a tree at its centre" loading="lazy" width="800" height="600" /></div>
-              <div class="work-meta">
-                <span class="work-index">01</span>
-                <h3 class="work-title">Courtyard House</h3>
-                <span class="work-year">2025</span>
-                <p class="work-type">Residential · New build</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="work-card work-card--narrow is-offset reveal" style="--delay: .1s">
-            <a href="project.html">
-              <div class="frame"><img class="is-drawing" src="images/work/tower.svg" alt="Elevation of a slender gridded tower with low pavilions at its base" loading="lazy" width="800" height="1000" /></div>
-              <div class="work-meta">
-                <span class="work-index">02</span>
-                <h3 class="work-title">Lantern Tower</h3>
-                <span class="work-year">2025</span>
-                <p class="work-type">Mixed use · Competition</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="work-card work-card--narrow reveal">
-            <a href="project.html">
-              <div class="frame"><img class="is-drawing" src="images/work/interior.svg" alt="Perspective of a quiet room with a tall window and light falling on the floor" loading="lazy" width="800" height="1000" /></div>
-              <div class="work-meta">
-                <span class="work-index">03</span>
-                <h3 class="work-title">Reading Room</h3>
-                <span class="work-year">2024</span>
-                <p class="work-type">Interiors · Refurbishment</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="work-card work-card--wide reveal" style="--delay: .1s">
-            <a href="project.html">
-              <div class="frame"><img class="is-drawing" src="images/work/library.svg" alt="Elevation of a library with a sawtooth north-light roof" loading="lazy" width="800" height="600" /></div>
-              <div class="work-meta">
-                <span class="work-index">04</span>
-                <h3 class="work-title">Northlight Library</h3>
-                <span class="work-year">2024</span>
-                <p class="work-type">Cultural · Public</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="work-card work-card--wide reveal">
-            <a href="project.html">
-              <div class="frame"><img class="is-drawing" src="images/work/pavilion.svg" alt="Elevation of a thin-roofed pavilion on slender columns beside water" loading="lazy" width="800" height="600" /></div>
-              <div class="work-meta">
-                <span class="work-index">05</span>
-                <h3 class="work-title">Water Pavilion</h3>
-                <span class="work-year">2023</span>
-                <p class="work-type">Landscape · Temporary</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="work-card work-card--narrow is-offset reveal" style="--delay: .1s">
-            <a href="project.html">
-              <div class="frame"><img class="is-drawing" src="images/work/section.svg" alt="Section drawing of a two-storey house with a central light shaft" loading="lazy" width="800" height="1000" /></div>
-              <div class="work-meta">
-                <span class="work-index">06</span>
-                <h3 class="work-title">Light Well House</h3>
-                <span class="work-year">2023</span>
-                <p class="work-type">Residential · Extension</p>
-              </div>
-            </a>
-          </article>
-        </div>
+      <div class="spec-cols mono" aria-hidden="true">
+        <span>No.</span><span>Project</span><span>Typology</span><span>Location</span><span>Year</span><span></span>
       </div>
+
+      <ol class="spec-list">
+        <li class="reveal">
+          <a class="spec-row" href="project.html">
+            <span class="spec-num">01</span>
+            <span class="spec-name">Courtyard House</span>
+            <span class="spec-typ">Residence</span>
+            <span class="spec-loc">Kyoto, JP<span class="spec-coord">35.0116° N · 135.7681° E</span></span>
+            <span class="spec-year">2025</span>
+            <svg class="spec-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            <span class="spec-thumb frame"><img class="is-drawing" src="images/work/courtyard-house.svg" alt="" loading="lazy" width="800" height="600" /></span>
+          </a>
+        </li>
+        <li class="reveal">
+          <a class="spec-row" href="project.html">
+            <span class="spec-num">02</span>
+            <span class="spec-name">Lantern Tower</span>
+            <span class="spec-typ">Mixed use</span>
+            <span class="spec-loc">Rotterdam, NL<span class="spec-coord">51.9244° N · 4.4777° E</span></span>
+            <span class="spec-year">2025</span>
+            <svg class="spec-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            <span class="spec-thumb frame"><img class="is-drawing" src="images/work/tower.svg" alt="" loading="lazy" width="800" height="1000" /></span>
+          </a>
+        </li>
+        <li class="reveal">
+          <a class="spec-row" href="project.html">
+            <span class="spec-num">03</span>
+            <span class="spec-name">Reading Room</span>
+            <span class="spec-typ">Interior</span>
+            <span class="spec-loc">Porto, PT<span class="spec-coord">41.1579° N · 8.6291° W</span></span>
+            <span class="spec-year">2024</span>
+            <svg class="spec-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            <span class="spec-thumb frame"><img class="is-drawing" src="images/work/interior.svg" alt="" loading="lazy" width="800" height="1000" /></span>
+          </a>
+        </li>
+        <li class="reveal">
+          <a class="spec-row" href="project.html">
+            <span class="spec-num">04</span>
+            <span class="spec-name">Northlight Library</span>
+            <span class="spec-typ">Civic</span>
+            <span class="spec-loc">Aarhus, DK<span class="spec-coord">56.1629° N · 10.2039° E</span></span>
+            <span class="spec-year">2024</span>
+            <svg class="spec-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            <span class="spec-thumb frame"><img class="is-drawing" src="images/work/library.svg" alt="" loading="lazy" width="800" height="600" /></span>
+          </a>
+        </li>
+        <li class="reveal">
+          <a class="spec-row" href="project.html">
+            <span class="spec-num">05</span>
+            <span class="spec-name">Water Pavilion</span>
+            <span class="spec-typ">Landscape</span>
+            <span class="spec-loc">Lugano, CH<span class="spec-coord">46.0037° N · 8.9511° E</span></span>
+            <span class="spec-year">2023</span>
+            <svg class="spec-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            <span class="spec-thumb frame"><img class="is-drawing" src="images/work/pavilion.svg" alt="" loading="lazy" width="800" height="600" /></span>
+          </a>
+        </li>
+        <li class="reveal">
+          <a class="spec-row" href="project.html">
+            <span class="spec-num">06</span>
+            <span class="spec-name">Light Well House</span>
+            <span class="spec-typ">Residence</span>
+            <span class="spec-loc">Melbourne, AU<span class="spec-coord">37.8136° S · 144.9631° E</span></span>
+            <span class="spec-year">2023</span>
+            <svg class="spec-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" /></svg>
+            <span class="spec-thumb frame"><img class="is-drawing" src="images/work/section.svg" alt="" loading="lazy" width="800" height="1000" /></span>
+          </a>
+        </li>
+      </ol>
+
+      <!-- Filled from the rows above by main.js -->
+      <div class="preview" aria-hidden="true"><div class="preview-inner"></div></div>
     </section>
 
-    <!-- Studio -->
-    <section class="section" id="studio" aria-labelledby="studio-title">
+    <!-- § 02 Material schedule -->
+    <section class="section" id="materials" data-sheet="A-201 Materials" aria-labelledby="materials-title">
       <div class="container">
-        <div class="studio-grid">
-          <div>
-            <p class="label reveal">Studio</p>
-            <h2 class="visually-hidden" id="studio-title">About the studio</h2>
-          </div>
-          <div>
-            <p class="studio-statement reveal">
-              We believe good buildings are made slowly — through close reading of a site,
-              honest materials and a patient attention to the details people touch every day.
-            </p>
-            <div class="studio-body reveal">
-              <p>
-                Reached Studio works across private houses, cultural spaces and small public
-                projects. Every commission is led directly by the studio's principals, from the
-                first sketch through to the last site visit.
-              </p>
-              <p>
-                We collaborate closely with engineers, makers and landscape designers, and we
-                prefer to stay small so that each project gets our full attention.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="principles">
-          <div class="principle reveal">
-            <span class="label">01</span>
-            <h3>Site first</h3>
-            <p>Orientation, climate and context set the terms. We draw the land before we draw the building.</p>
-          </div>
-          <div class="principle reveal" style="--delay: .08s">
-            <span class="label">02</span>
-            <h3>Honest structure</h3>
-            <p>Clear, legible structure and a restrained palette of materials that age gracefully.</p>
-          </div>
-          <div class="principle reveal" style="--delay: .16s">
-            <span class="label">03</span>
-            <h3>Considered detail</h3>
-            <p>Thresholds, handrails and window reveals — the small moments that make a space feel right.</p>
-          </div>
-        </div>
+        <header class="sheet-head reveal">
+          <span class="mono">§ 02 — Schedule</span>
+          <h2 id="materials-title">Material palette</h2>
+          <span class="mono">08 finishes</span>
+        </header>
       </div>
-    </section>
 
-    <!-- Practice -->
-    <section class="section" id="practice" aria-labelledby="practice-title">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="label reveal">Practice</p>
-            <h2 class="section-title reveal" id="practice-title" style="margin-top:1.25rem">Services</h2>
-          </div>
-          <p class="section-intro reveal">
-            Full architectural services from feasibility to completion, or focused
-            support at any stage.
-          </p>
-        </div>
-
-        <ul class="services">
-          <li class="service reveal">
-            <span class="service-num">01</span>
-            <h3>Architecture</h3>
-            <p>New buildings, extensions and adaptive reuse — from concept design through documentation and delivery.</p>
-          </li>
-          <li class="service reveal">
-            <span class="service-num">02</span>
-            <h3>Interiors</h3>
-            <p>Joinery, lighting and material selection that carry the architecture through to the smallest scale.</p>
-          </li>
-          <li class="service reveal">
-            <span class="service-num">03</span>
-            <h3>Urban design</h3>
-            <p>Masterplans and public-realm strategies that knit new work into its streets and landscape.</p>
-          </li>
-          <li class="service reveal">
-            <span class="service-num">04</span>
-            <h3>Feasibility</h3>
-            <p>Early site studies, briefs and planning advice to test what's possible before you commit.</p>
-          </li>
+      <div class="ticker reveal">
+        <ul class="ticker-track">
+          <li class="material"><span class="swatch swatch--concrete"></span><span class="material-code">M-01</span><span class="material-name">Cast Concrete</span><span class="material-spec">Board-formed · pale aggregate</span></li>
+          <li class="material"><span class="swatch swatch--oak"></span><span class="material-code">M-02</span><span class="material-name">Fluted Oak</span><span class="material-spec">European white oak · oiled</span></li>
+          <li class="material"><span class="swatch swatch--steel"></span><span class="material-code">M-03</span><span class="material-name">Burnished Steel</span><span class="material-spec">Mild steel · waxed</span></li>
+          <li class="material"><span class="swatch swatch--marble"></span><span class="material-code">M-04</span><span class="material-name">Honed Marble</span><span class="material-spec">Calacatta · honed finish</span></li>
+          <li class="material"><span class="swatch swatch--plaster"></span><span class="material-code">M-05</span><span class="material-name">Lime Plaster</span><span class="material-spec">Hand-trowelled · breathable</span></li>
+          <li class="material"><span class="swatch swatch--bronze"></span><span class="material-code">M-06</span><span class="material-name">Patinated Bronze</span><span class="material-spec">Verdigris · hand-applied</span></li>
+          <li class="material"><span class="swatch swatch--travertine"></span><span class="material-code">M-07</span><span class="material-name">Travertine</span><span class="material-spec">Vein-cut · unfilled</span></li>
+          <li class="material"><span class="swatch swatch--terrazzo"></span><span class="material-code">M-08</span><span class="material-name">Terrazzo</span><span class="material-spec">Poured in situ · ground</span></li>
         </ul>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <p class="label reveal">Contact</p>
-        <h2 class="visually-hidden" id="contact-title">Contact</h2>
-        <a class="contact-email reveal" href="mailto:hello@example.com">hello@example.com</a>
+    <!-- § 03 Correspondence -->
+    <section class="section container" id="contact" data-sheet="A-900 Contact" aria-labelledby="contact-title">
+      <header class="sheet-head reveal">
+        <span class="mono">§ 03 — Correspondence</span>
+        <h2 id="contact-title" class="visually-hidden">Contact</h2>
+        <span></span>
+        <span class="mono">Commissions &amp; collaborations</span>
+      </header>
 
-        <div class="contact-grid reveal">
-          <div>
-            <h3>New projects</h3>
-            <p>We take on a small number of commissions each year. Tell us about your site and brief.</p>
-          </div>
-          <div>
-            <h3>Follow</h3>
-            <ul>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">LinkedIn</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3>Careers</h3>
-            <p>We're always happy to hear from thoughtful designers. Send a short portfolio.</p>
-          </div>
+      <a class="contact-email reveal" href="mailto:hello@example.com">hello@example.com</a>
+
+      <dl class="title-block reveal">
+        <div>
+          <dt>Studio</dt>
+          <dd>City, Country</dd>
         </div>
-      </div>
+        <div>
+          <dt>Coordinates</dt>
+          <dd class="mono">00.0000° N · 000.0000° E</dd>
+        </div>
+        <div>
+          <dt>Channels</dt>
+          <dd class="channels">
+            <a href="#">Instagram ↗</a>
+            <a href="#">LinkedIn ↗</a>
+          </dd>
+        </div>
+        <div>
+          <dt>Drawn by</dt>
+          <dd>Reached Studio</dd>
+        </div>
+      </dl>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <span>&copy; <span data-year>2026</span> Reached Studio</span>
-      <a href="#main">Back to top ↑</a>
+  <footer class="container">
+    <div class="title-strip mono">
+      <span>© <span data-year>2026</span> Reached Studio</span>
+      <span>Scale — NTS</span>
+      <span>Sheet A-900</span>
+      <a href="#main">Return to top ↑</a>
     </div>
   </footer>
 

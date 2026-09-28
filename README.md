@@ -5,7 +5,8 @@ Portfolio site for an architecture studio. Plain HTML, CSS and JS with no build 
 ## Structure
 
 ```
-index.html            Home: hero, selected work, studio, services, contact
+index.html            Home, laid out as a drawing sheet: manifesto, plate,
+                      specimen index (hover previews), material ticker, contact
 project.html          Case-study page. Copy it for each project
 assets/css/style.css  All styles. Colour tokens are at the top (light and dark)
 assets/js/main.js     Theme toggle, mobile menu, header state, scroll reveals
@@ -15,10 +16,10 @@ images/work/          Placeholder line drawings
 
 ## Editing content
 
-- **Projects**: each card in `index.html` (`#work`) links to a project page. Copy `project.html` (for example to `courtyard-house.html`), update the title, specs, text and images, then point the card's `href` at it.
-- **Images**: see *Adding renders* below. Wide cards use a 4:3 frame, narrow cards and the project gallery use 4:5, and the home hero and project cover use 16:9. Images are cropped to fit.
+- **Projects**: each row of the index in `index.html` (`#index`) links to a project page. Copy `project.html` (for example to `courtyard-house.html`), update the title, specs, text and images, then point the row's `href` at it.
+- **Images**: see *Adding renders* below. The home plate and project cover use 16:9 and the project gallery uses 4:5. Index previews show each image at its own shape. Images are cropped to fit their frames.
 - **Contact**: replace `hello@example.com` and the `#` social links in `index.html`.
-- **Theme**: follows the visitor's system setting by default. The toggle stores their choice in `localStorage`.
+- **Theme**: dark by default. The toggle switches to a light sheet and remembers the choice in `localStorage`.
 
 ## Adding renders
 
@@ -27,9 +28,9 @@ images/work/          Placeholder line drawings
 
    | Name | Replaces |
    |---|---|
-   | `hero` | Large image at the top of the home page |
-   | `courtyard-house` | Courtyard House card and its project page cover |
-   | `tower`, `interior`, `library`, `pavilion`, `section` | The other five home page cards |
+   | `hero` | Plate under the manifesto on the home page |
+   | `courtyard-house` | Index entry 01 and its project page cover |
+   | `tower`, `interior`, `library`, `pavilion`, `section` | Index entries 02–06 |
    | `courtyard-house-site-plan`, `courtyard-house-section`, `courtyard-house-interior` | Project page gallery |
 
 3. Double-click `tools/add-renders.cmd`, or run:
