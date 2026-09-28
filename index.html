@@ -36,14 +36,17 @@
   <div class="sheet-frame" aria-hidden="true">
     <div class="sheet-zones sheet-zones--top"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
     <div class="sheet-zones sheet-zones--left"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+    <span class="hud-corner hud-corner--tl"></span><span class="hud-corner hud-corner--tr"></span><span class="hud-corner hud-corner--bl"></span><span class="hud-corner hud-corner--br"></span>
+    <div class="hud-bottom"><span>DRAG TO EXPLORE // SCROLL FOR INDEX</span><span>CUR <b data-cursor>X 0000 · Y 0000</b></span></div>
   </div>
 
   <header class="site-header">
     <div class="status-bar mono">
       <div class="container">
-        <span class="status-coord">37.8136° S, 144.9631° E</span>
+        <span class="status-coord"><span class="status-prefix">LAT/LONG: </span>37.8136° S, 144.9631° E</span>
         <span class="status-year">SYS.YEAR <b data-year>2026</b></span>
-        <span class="status-label" role="status"><span class="pulse" aria-hidden="true"></span><span class="status-full">[SYSTEM ACTIVE // ARCHIVE ONLINE]</span><span class="status-short">[ARCHIVE ONLINE]</span></span>
+        <span class="status-right"><button class="snd-toggle" type="button" aria-pressed="false" title="Sound (coming soon)">SND — <b>OFF</b></button>
+        <span class="status-label" role="status"><span class="pulse" aria-hidden="true"></span><span class="status-full">[SYSTEM ACTIVE // ARCHIVE ONLINE]</span><span class="status-short">[ARCHIVE ONLINE]</span></span></span>
       </div>
     </div>
     <div class="container">
@@ -150,14 +153,14 @@
       <header class="sheet-head reveal">
         <span class="mono">[001] // Archive Index</span>
         <h2 id="index-title">Archive Index</h2>
-        <span class="mono">06 records // 2023–2026</span>
+        <span class="mono">06 nodes // 2023–2026</span>
       </header>
 
       <div class="spec-cols mono" aria-hidden="true">
         <span>ID</span><span>// Entry</span><span>// Typology</span><span>// Location</span><span>// Year</span><span></span>
       </div>
 
-      <ol class="spec-list">
+      <ol class="spec-list" data-spatial="archive" data-spatial-label="[001] // Archive canvas">
         <li class="reveal">
           <a class="spec-row" href="project.html">
             <span class="spec-num">[SYS_01]</span>
@@ -236,7 +239,7 @@
         <header class="sheet-head reveal">
           <span class="mono">[002] // Specimen</span>
           <h2 id="materials-title">Material &amp; Acoustic Specimen</h2>
-          <span class="mono">08 samples // hover feed to pause</span>
+          <span class="mono">10 samples // drag the deck</span>
         </header>
       </div>
 
@@ -250,6 +253,8 @@
           <li class="material"><span class="swatch swatch--marble"></span><span class="material-code">[A-06]</span><span class="material-name">Honed Marble</span><span class="material-spec">Reflective // honed</span></li>
           <li class="material"><span class="swatch swatch--plaster"></span><span class="material-code">[A-07]</span><span class="material-name">Lime Plaster</span><span class="material-spec">Reflective // breathable</span></li>
           <li class="material"><span class="swatch swatch--terrazzo"></span><span class="material-code">[A-08]</span><span class="material-name">Terrazzo</span><span class="material-spec">Reflective // ground</span></li>
+          <li class="material"><span class="swatch swatch--microcement"></span><span class="material-code">[A-09]</span><span class="material-name">Microcement</span><span class="material-spec">Reflective // seamless</span></li>
+          <li class="material"><span class="swatch swatch--travertine"></span><span class="material-code">[A-10]</span><span class="material-name">Honed Travertine</span><span class="material-spec">Reflective // honed</span></li>
         </ul>
       </div>
 
@@ -258,7 +263,7 @@
           <span></span><span>ID</span><span>// Material</span><span>// Finish</span><span>// Acoustic</span><span>// Application</span>
         </div>
 
-        <ol class="specimen-list">
+        <ol class="specimen-list" data-spatial="deck" data-spatial-label="[002] // Specimen deck">
           <li class="specimen reveal">
             <span class="swatch swatch--honeycomb" aria-hidden="true"></span>
             <span class="specimen-code">[A-01]</span>
@@ -322,6 +327,22 @@
             <span class="specimen-finish">Poured in situ // ground</span>
             <span class="specimen-acoustic"><span class="tag tag--reflect">[Reflective]</span><span class="meter" data-level="0" role="img" aria-label="Relative absorption 0 of 5"><i></i><i></i><i></i><i></i><i></i></span></span>
             <span class="specimen-use">Floors</span>
+          </li>
+          <li class="specimen reveal">
+            <span class="swatch swatch--microcement" aria-hidden="true"></span>
+            <span class="specimen-code">[A-09]</span>
+            <span class="specimen-name">Microcement</span>
+            <span class="specimen-finish">Trowelled cementitious skim // sealed matte</span>
+            <span class="specimen-acoustic"><span class="tag tag--reflect">[Reflective]</span><span class="meter" data-level="0" role="img" aria-label="Relative absorption 0 of 5"><i></i><i></i><i></i><i></i><i></i></span></span>
+            <span class="specimen-use">Seamless floors // wet areas</span>
+          </li>
+          <li class="specimen reveal">
+            <span class="swatch swatch--travertine" aria-hidden="true"></span>
+            <span class="specimen-code">[A-10]</span>
+            <span class="specimen-name">Honed Travertine</span>
+            <span class="specimen-finish">Vein-cut // honed // unfilled</span>
+            <span class="specimen-acoustic"><span class="tag tag--reflect">[Reflective]</span><span class="meter" data-level="0" role="img" aria-label="Relative absorption 0 of 5"><i></i><i></i><i></i><i></i><i></i></span></span>
+            <span class="specimen-use">Floors // stair treads</span>
           </li>
         </ol>
 

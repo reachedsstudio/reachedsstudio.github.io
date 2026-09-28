@@ -1682,3 +1682,649 @@ img.is-drawing {
     display: none;
   }
 }
+
+/* ==========================================================================
+   HUD frame + spatial canvas
+   Layered on the archive theme. The canvas is a progressive enhancement:
+   main.js wraps [data-spatial] lists on desktop; everywhere else the list
+   styles above still apply.
+   ========================================================================== */
+
+/* ---------- HUD: status bar controls ---------- */
+
+.status-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.snd-toggle {
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--fg-muted);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.snd-toggle b {
+  font-weight: 400;
+  color: var(--fg);
+}
+
+/* Phones: drop the LAT/LONG prefix and tighten spacing so the bar fits */
+@media (max-width: 600px) {
+  .status-prefix {
+    display: none;
+  }
+
+  .status-bar .container {
+    gap: 0.6rem;
+  }
+
+  .status-right {
+    gap: 0.6rem;
+  }
+
+  /* Only the blinking light remains of the status label */
+  .status-label .status-short {
+    display: none;
+  }
+}
+
+.snd-toggle:hover,
+.snd-toggle[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.snd-toggle[aria-pressed="true"] b {
+  color: var(--accent);
+}
+
+/* ---------- HUD: frame corners + bottom readout ---------- */
+
+.hud-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 0 solid var(--accent);
+}
+
+.hud-corner--tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+.hud-corner--tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; }
+.hud-corner--bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; }
+.hud-corner--br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+
+.hud-bottom {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .hud-bottom {
+    position: absolute;
+    top: 100%;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: var(--frame);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: var(--fg-muted);
+  }
+
+  .hud-bottom b {
+    font-weight: 400;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ---------- Extra swatches ---------- */
+
+.swatch--microcement {
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 35%, rgba(255, 255, 255, 0.16), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 75% 70%, rgba(0, 0, 0, 0.14), transparent 70%),
+    radial-gradient(ellipse 80% 30% at 50% 90%, rgba(255, 255, 255, 0.08), transparent 70%),
+    #a8a49c;
+}
+
+.swatch--travertine {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(140, 115, 80, 0.25) 5px 6px, transparent 6px 9px, rgba(255, 255, 255, 0.2) 9px 10px),
+    radial-gradient(ellipse at 30% 60%, rgba(120, 95, 60, 0.25) 0 2px, transparent 3px) 0 0 / 18px 11px,
+    linear-gradient(180deg, #dccbaa, #c8b48e);
+}
+
+/* ---------- Spatial canvas ---------- */
+
+.spatial {
+  position: relative;
+}
+
+.spatial-viewport {
+  position: relative;
+  height: min(78vh, 820px);
+  min-height: 520px;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: var(--bg);
+  cursor: grab;
+  touch-action: pan-y;
+  perspective: 1600px;
+  outline-offset: -2px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.spatial-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.spatial--deck .spatial-viewport {
+  height: min(70vh, 700px);
+}
+
+/* Infinite grid: a tile with lines and a "+" at its centre, tinted by
+   the theme and moved with the camera. */
+.spatial-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-color: var(--line-strong);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M0 .5H120M.5 0V120' stroke='%23000' stroke-opacity='.4'/%3E%3Cpath d='M60 54v12M54 60h12' stroke='%23000'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M0 .5H120M.5 0V120' stroke='%23000' stroke-opacity='.4'/%3E%3Cpath d='M60 54v12M54 60h12' stroke='%23000'/%3E%3C/svg%3E");
+  -webkit-mask-size: var(--grid-size, 120px) var(--grid-size, 120px);
+  mask-size: var(--grid-size, 120px) var(--grid-size, 120px);
+  -webkit-mask-position: var(--grid-x, 0) var(--grid-y, 0);
+  mask-position: var(--grid-x, 0) var(--grid-y, 0);
+}
+
+/* CRT scanlines + vignette over the whole viewport */
+.spatial-viewport::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.18) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+:root[data-theme="light"] .spatial-viewport::after {
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.04) 0 1px, transparent 1px 3px);
+}
+
+.spatial-stage {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+}
+
+.spatial-world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.spatial.is-canvas .spatial-world > ol {
+  position: relative;
+  width: var(--world-w);
+  height: var(--world-h);
+  border: 0;
+}
+
+.spatial.is-canvas .spatial-world > ol > li {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+}
+
+/* HUD overlays inside the canvas */
+.spatial-hud {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  pointer-events: none;
+}
+
+.spatial-hud > * {
+  pointer-events: auto;
+}
+
+.spatial-hud--tl { top: 0.9rem; left: 1rem; color: var(--accent); }
+.spatial-hud--tr { top: 0.9rem; right: 1rem; font-variant-numeric: tabular-nums; }
+.spatial-hud--bl { bottom: 0.9rem; left: 1rem; }
+.spatial-hud--bc { bottom: 1.1rem; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+
+.spatial-hud b {
+  font-weight: 400;
+  color: var(--fg);
+}
+
+@media (max-width: 1100px) {
+  .spatial-hud--bc {
+    display: none;
+  }
+}
+
+.spatial-btn {
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.6rem;
+  border: 1px solid var(--line-strong);
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.spatial-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* List-view toggle shown above a list that has been switched back */
+.spatial.is-list .spatial-viewport {
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  border: 0;
+  background: none;
+  cursor: auto;
+  perspective: none;
+  user-select: auto;
+  -webkit-user-select: auto;
+}
+
+.spatial.is-list :is(.spatial-grid, .spatial-map, .spatial-card, .spatial-hud--tr, .spatial-hud--bc),
+.spatial.is-list .spatial-viewport::after {
+  display: none;
+}
+
+.spatial.is-list :is(.spatial-stage, .spatial-world) {
+  position: static;
+  transform: none !important;
+}
+
+.spatial.is-list .spatial-hud--tl,
+.spatial.is-list .spatial-hud--bl {
+  position: static;
+  margin-bottom: 1rem;
+}
+
+.spatial.is-list .spatial-btn--nav,
+.spatial.is-list .spatial-hud--tl {
+  display: none;
+}
+
+.spatial.no-canvas .spatial-hud {
+  display: none;
+}
+
+/* Minimap */
+.spatial-map {
+  position: absolute;
+  z-index: 4;
+  right: 1rem;
+  bottom: 0.9rem;
+  width: 150px;
+  border: 1px solid var(--line-strong);
+  background: rgba(8, 8, 8, 0.7);
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+:root[data-theme="light"] .spatial-map {
+  background: rgba(243, 243, 241, 0.8);
+}
+
+.spatial-map i {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  background: var(--fg-muted);
+}
+
+.spatial-map i.is-focused {
+  background: var(--accent);
+}
+
+.spatial-map b {
+  position: absolute;
+  border: 1px solid var(--accent);
+  pointer-events: none;
+}
+
+/* Focus card */
+.spatial-card {
+  position: absolute;
+  z-index: 5;
+  top: 3rem;
+  right: 1rem;
+  width: min(340px, 42%);
+  max-height: calc(100% - 7.5rem);
+  overflow: auto;
+  border: 1px solid var(--accent);
+  background: var(--bg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(12px);
+  transition: opacity 0.25s ease, transform 0.4s var(--ease), visibility 0s linear 0.4s;
+  cursor: default;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.spatial-card.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.spatial-card.is-swapping .spatial-card-body {
+  animation: card-glitch 0.32s steps(4) 1;
+}
+
+@keyframes card-glitch {
+  0% { clip-path: inset(0 0 85% 0); transform: translateX(-4px); }
+  25% { clip-path: inset(40% 0 30% 0); transform: translateX(3px); }
+  50% { clip-path: inset(10% 0 55% 0); transform: translateX(-2px); }
+  100% { clip-path: inset(0 0 0 0); transform: none; }
+}
+
+.spatial-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.45rem 0.6rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.spatial-card-head button {
+  padding: 0 0.2rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.spatial-card-media {
+  position: relative;
+  border-bottom: 1px solid var(--line-strong);
+  background: var(--bg-elev);
+}
+
+.spatial-card-media img {
+  width: 100%;
+  height: auto;
+}
+
+.spatial-card-media .swatch {
+  width: 100%;
+  height: 170px;
+  border: 0;
+}
+
+.spatial-card-body {
+  padding: 0.9rem 0.9rem 1rem;
+}
+
+.spatial-card-title {
+  font-family: var(--font-sans);
+  font-size: var(--step-2);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  text-transform: none;
+}
+
+.spatial-card-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1rem;
+  margin-top: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.spatial-card-meta dt {
+  color: var(--fg-muted);
+}
+
+.spatial-card-meta dd {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.spatial-card-cta {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.spatial-card-cta:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* ---------- Archive nodes (projects on the canvas) ---------- */
+
+.spec-cols.is-hidden,
+.specimen-cols.is-hidden {
+  display: none;
+}
+
+.spatial.is-canvas .spec-list {
+  font-family: var(--font-sans);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.spatial.is-canvas .spec-row {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--fg);
+}
+
+.spatial.is-canvas .spec-row::before {
+  content: none;
+}
+
+.spatial.is-canvas .spec-thumb {
+  display: block;
+  aspect-ratio: auto;
+  border: 1px solid var(--line-strong);
+  transition: border-color 0.2s ease, box-shadow 0.4s var(--ease);
+}
+
+.spatial.is-canvas .spec-thumb img {
+  height: auto;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.spatial.is-canvas .spec-num {
+  position: absolute;
+  top: -1.4rem;
+  left: 0;
+  font-family: var(--font-mono);
+  color: var(--accent);
+}
+
+.spatial.is-canvas .spec-name {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.spatial.is-canvas .spec-name::before {
+  content: none;
+}
+
+.spatial.is-canvas :is(.spec-typ, .spec-loc, .spec-year, .spec-arrow) {
+  display: none;
+}
+
+/* Crosshair registration mark on each node */
+.spatial.is-canvas .spec-list > li::after {
+  content: "+";
+  position: absolute;
+  top: -1.55rem;
+  right: -0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1;
+  color: var(--fg-faint);
+}
+
+.spatial.is-canvas .spec-row:hover,
+.spatial.is-canvas .spec-row:focus-visible,
+.spatial.is-canvas .spec-row:hover .spec-name,
+.spatial.is-canvas .spec-row:focus-visible .spec-name {
+  color: var(--fg);
+}
+
+.spatial.is-canvas .spec-row:hover .spec-num,
+.spatial.is-canvas .spec-row:focus-visible .spec-num {
+  color: var(--accent);
+}
+
+/* Retro-digital RGB split on the active title */
+.spatial.is-canvas .spec-row:hover .spec-name,
+.spatial.is-canvas .is-focused .spec-name {
+  text-shadow: 1.5px 0 rgba(255, 0, 80, 0.55), -1.5px 0 rgba(0, 220, 255, 0.55);
+}
+
+.spatial.is-canvas .spec-row:hover .spec-thumb,
+.spatial.is-canvas .spec-row:focus-visible .spec-thumb,
+.spatial.is-canvas .is-focused .spec-thumb {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* Dim the others while one node is hovered or focused */
+.spatial.is-canvas .spec-list:hover .spec-row,
+.spatial.is-canvas.has-focus .spec-row {
+  opacity: 0.4;
+}
+
+.spatial.is-canvas .spec-list .spec-row:hover,
+.spatial.is-canvas .spec-list .is-focused .spec-row {
+  opacity: 1;
+}
+
+/* ---------- Specimen deck ---------- */
+
+.spatial.is-canvas .specimen {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.7rem;
+  border: 1px solid var(--line-strong);
+  background: var(--bg-elev);
+  rotate: var(--rot, 0deg);
+  transition: rotate 0.45s var(--ease), translate 0.45s var(--ease), scale 0.45s var(--ease),
+    border-color 0.2s ease, box-shadow 0.45s var(--ease), opacity 0.9s var(--ease);
+  cursor: pointer;
+}
+
+.spatial.is-canvas .specimen .swatch {
+  grid-row: auto;
+  width: 100%;
+  height: 150px;
+}
+
+.spatial.is-canvas .specimen > :not(.swatch) {
+  grid-column: auto;
+}
+
+.spatial.is-canvas .specimen-name {
+  font-size: 1rem;
+}
+
+.spatial.is-canvas .specimen-acoustic {
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.3rem;
+}
+
+.spatial.is-canvas .specimen-use {
+  display: none;
+}
+
+.spatial.is-canvas .specimen:hover,
+.spatial.is-canvas .specimen.is-focused,
+.spatial.is-canvas .specimen:focus-visible {
+  rotate: 0deg;
+  translate: 0 -10px;
+  scale: 1.04;
+  z-index: 2;
+  border-color: var(--accent);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+  outline: none;
+}
+
+.spatial.is-canvas .specimen-list:hover .specimen,
+.spatial.is-canvas.has-focus .specimen {
+  opacity: 0.55;
+}
+
+.spatial.is-canvas .specimen-list .specimen:hover,
+.spatial.is-canvas .specimen-list .specimen.is-focused {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spatial-card.is-swapping .spatial-card-body {
+    animation: none;
+  }
+}

@@ -5,11 +5,13 @@ Portfolio site for an architecture studio. Plain HTML, CSS and JS with no build 
 ## Structure
 
 ```
-index.html            Home, laid out as a drawing sheet: manifesto, plate,
-                      archive index (hover previews), material & acoustic specimen, contact
+index.html            Home: HUD frame, manifesto, plate, archive canvas,
+                      material & acoustic specimen deck, contact
 project.html          Case-study page. Copy it for each project
 assets/css/style.css  All styles. Colour tokens are at the top (light and dark)
-assets/js/main.js     Theme toggle, mobile menu, header state, scroll reveals
+assets/js/main.js     Theme, menu, HUD, scroll reveals, and the spatial canvas
+                      (turns any <ol data-spatial="archive|deck"> into a
+                      pannable canvas on desktop; phones keep the list)
 assets/favicon.svg
 images/work/          Placeholder line drawings
 ```
