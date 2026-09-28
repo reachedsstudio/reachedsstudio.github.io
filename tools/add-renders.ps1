@@ -44,6 +44,8 @@ foreach ($page in $pages) {
 }
 
 function Get-Slug([string]$name) {
+  # Windows hides extensions, so "hero.jpg" typed onto a PNG becomes "hero.jpg.png"
+  $name = $name -replace '(\.(jpe?g|png))+$', ''
   $s = $name.ToLowerInvariant() -replace '[\s_]+', '-' -replace '[^a-z0-9-]', '' -replace '-+', '-'
   return $s.Trim('-')
 }
