@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none" stroke="#1a1a18" stroke-width="1.5" stroke-linecap="square">
+  <!-- one-point perspective room -->
+  <rect x="250" y="330" width="300" height="340" fill="#f3f1ec"/>
+  <path d="M40 60L250 330M760 60L550 330M40 940L250 670M760 940L550 670"/>
+  <path d="M300 670L180 940M350 670L320 940M400 670v270M450 670L480 940M500 670L620 940" stroke-width="0.7"/>
+  <!-- tall window -->
+  <rect x="330" y="380" width="140" height="290" fill="#cfcbc2"/>
+  <path d="M400 380v290" stroke-width="1"/>
+  <!-- light spill -->
+  <path d="M330 670L270 860H530L470 670z" fill="#e4e1da" stroke-width="0.7"/>
+  <!-- bench -->
+  <path d="M120 760l110-60h120M120 760v40M230 700v30" stroke-width="1"/>
+  <!-- pendant -->
+  <path d="M400 60v170" stroke-width="0.8"/>
+  <path d="M380 230h40l-8 18h-24z" fill="#e4e1da" stroke-width="1"/>
+</svg>

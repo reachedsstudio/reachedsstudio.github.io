@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" stroke="#1a1a18" stroke-width="1.5" stroke-linecap="square">
+  <path d="M40 470h720"/>
+  <path d="M40 500h720M40 530h720" stroke-width="0.8" stroke-dasharray="3 7"/>
+  <!-- thin roof plane on slender columns -->
+  <path d="M110 250h580" stroke-width="4"/>
+  <path d="M170 250v220M290 250v220M410 250v220M530 250v220M650 250v220"/>
+  <!-- screen walls -->
+  <rect x="200" y="330" width="70" height="140" fill="#e4e1da"/>
+  <rect x="440" y="300" width="70" height="170" fill="#e4e1da"/>
+  <!-- reflection in water -->
+  <path d="M170 470v50M290 470v50M410 470v50M530 470v50M650 470v50" stroke-width="0.8" opacity="0.5"/>
+  <g stroke-width="1.2"><circle cx="360" cy="428" r="6"/><path d="M360 434v18M360 452l-6 16M360 452l6 16M352 442h16"/></g>
+  <path d="M600 140c30-20 60-20 90 0M630 170c20-12 40-12 60 0" stroke-width="1"/>
+</svg>

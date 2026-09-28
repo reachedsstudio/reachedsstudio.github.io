@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" stroke="#1a1a18" stroke-width="1.5" stroke-linecap="square">
+  <path d="M40 470h720"/>
+  <path d="M70 470l-14 14M110 470l-14 14M150 470l-14 14M190 470l-14 14M230 470l-14 14M270 470l-14 14M310 470l-14 14M350 470l-14 14M390 470l-14 14M430 470l-14 14M470 470l-14 14M510 470l-14 14M550 470l-14 14M590 470l-14 14M630 470l-14 14M670 470l-14 14M710 470l-14 14M750 470l-14 14" stroke-width="0.8"/>
+  <!-- low walls either side of the courtyard -->
+  <rect x="100" y="340" width="230" height="130" fill="#e4e1da"/>
+  <rect x="470" y="340" width="230" height="130" fill="#e4e1da"/>
+  <path d="M86 340h258M456 340h258" stroke-width="3"/>
+  <!-- courtyard + tree -->
+  <path d="M330 470V380h140v90" stroke-width="1"/>
+  <path d="M400 470v-110"/>
+  <circle cx="400" cy="320" r="52" stroke-width="1"/>
+  <!-- openings -->
+  <rect x="130" y="390" width="150" height="16" fill="#cfcbc2"/>
+  <rect x="520" y="370" width="16" height="80" fill="#cfcbc2"/>
+  <rect x="560" y="370" width="16" height="80" fill="#cfcbc2"/>
+  <rect x="600" y="370" width="16" height="80" fill="#cfcbc2"/>
+  <rect x="640" y="370" width="16" height="80" fill="#cfcbc2"/>
+  <circle cx="620" cy="170" r="36" stroke-width="1"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" stroke="#1a1a18" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="bevel">
+  <path d="M40 480h720"/>
+  <!-- sawtooth roof -->
+  <path d="M120 480V300l80-80v80l80-80v80l80-80v80l80-80v80l80-80v80l80-80v260z" fill="#e4e1da"/>
+  <!-- north-light glazing -->
+  <g fill="#f3f1ec" stroke-width="1">
+    <path d="M200 220v80h-80z"/><path d="M280 220v80h-80z"/><path d="M360 220v80h-80z"/><path d="M440 220v80h-80z"/><path d="M520 220v80h-80z"/><path d="M600 220v80h-80z"/>
+  </g>
+  <path d="M120 300h480" stroke-width="1"/>
+  <!-- ground floor glazing -->
+  <rect x="200" y="380" width="320" height="100" fill="#cfcbc2"/>
+  <path d="M280 380v100M360 380v100M440 380v100" stroke-width="1"/>
+  <g stroke-width="1.2"><circle cx="570" cy="436" r="6"/><path d="M570 442v20M570 462l-6 16M570 462l6 16M562 450h16"/></g>
+</svg>

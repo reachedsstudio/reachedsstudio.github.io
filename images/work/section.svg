@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none" stroke="#1a1a18" stroke-width="1.5" stroke-linecap="square">
+  <!-- building section with cut walls and slabs -->
+  <path d="M40 820h720"/>
+  <path d="M120 820V300h40v520zM640 820V300h40v520z" fill="#1a1a18"/>
+  <path d="M120 300h560v28H120zM160 560h480v22H160z" fill="#1a1a18"/>
+  <path d="M100 290l300-150 300 150" stroke-width="1"/>
+  <!-- light shaft -->
+  <path d="M360 328L300 560h200l-60-232z" fill="#e4e1da" stroke-width="0.8"/>
+  <path d="M300 582L260 820h280l-40-238z" fill="#f3f1ec" stroke-width="0.8"/>
+  <!-- stair -->
+  <path d="M520 820v-20h20v-20h20v-20h20v-20h20v-20h20v-20h20" stroke-width="1"/>
+  <g stroke-width="1.2"><circle cx="230" cy="770" r="7"/><path d="M230 777v22M230 799l-7 18M230 799l7 18M221 786h18"/></g>
+  <path d="M40 820l-16 16M80 820l-16 16M200 820l-16 16M600 820l-16 16M720 820l-16 16M760 820l-16 16" stroke-width="0.8"/>
+</svg>

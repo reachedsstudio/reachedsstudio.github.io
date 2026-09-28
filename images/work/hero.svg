@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none" stroke="#1a1a18" stroke-width="1.5" stroke-linecap="square">
+  <!-- light study -->
+  <circle cx="1220" cy="250" r="92" stroke-width="1"/>
+  <path d="M1220 120v-30M1220 410v-30M1090 250h-30M1380 250h-30" stroke-width="1"/>
+  <!-- horizon + ground -->
+  <path d="M80 690h1440" stroke-width="1" stroke-dasharray="2 8"/>
+  <path d="M60 720h1480"/>
+  <g stroke-width="0.8">
+    <path d="M100 720l-18 18M140 720l-18 18M180 720l-18 18M220 720l-18 18M260 720l-18 18M300 720l-18 18M340 720l-18 18M380 720l-18 18M420 720l-18 18M460 720l-18 18M500 720l-18 18M540 720l-18 18M580 720l-18 18M620 720l-18 18M660 720l-18 18M700 720l-18 18M740 720l-18 18M780 720l-18 18M820 720l-18 18M860 720l-18 18M900 720l-18 18M940 720l-18 18M980 720l-18 18M1020 720l-18 18M1060 720l-18 18M1100 720l-18 18M1140 720l-18 18M1180 720l-18 18M1220 720l-18 18M1260 720l-18 18M1300 720l-18 18M1340 720l-18 18M1380 720l-18 18M1420 720l-18 18M1460 720l-18 18M1500 720l-18 18"/>
+  </g>
+  <!-- main volume -->
+  <rect x="240" y="470" width="760" height="250" fill="#e4e1da"/>
+  <path d="M220 470h800" stroke-width="3"/>
+  <!-- cantilevered upper volume -->
+  <rect x="520" y="330" width="620" height="140" fill="#f3f1ec"/>
+  <path d="M500 330h660" stroke-width="3"/>
+  <path d="M560 330v140M600 330v140M640 330v140M680 330v140M720 330v140M760 330v140M800 330v140M840 330v140M880 330v140M920 330v140M960 330v140M1000 330v140M1040 330v140M1080 330v140M1120 330v140" stroke-width="1"/>
+  <!-- glazing -->
+  <rect x="300" y="530" width="330" height="190" fill="#cfcbc2"/>
+  <path d="M410 530v190M520 530v190" stroke-width="1"/>
+  <rect x="700" y="560" width="240" height="90"/>
+  <path d="M700 605h240" stroke-width="1"/>
+  <!-- tower -->
+  <rect x="1180" y="400" width="160" height="320" fill="#e4e1da"/>
+  <path d="M1170 400h180" stroke-width="3"/>
+  <path d="M1220 440v240M1260 440v240M1300 440v240" stroke-width="1"/>
+  <!-- tree -->
+  <path d="M170 720v-120"/>
+  <circle cx="170" cy="560" r="62" stroke-width="1"/>
+  <circle cx="150" cy="580" r="34" stroke-width="0.8"/>
+  <!-- scale figures -->
+  <g stroke-width="1.2">
+    <circle cx="665" cy="668" r="7"/><path d="M665 675v26M665 701l-8 19M665 701l8 19M655 686h20"/>
+    <circle cx="1410" cy="668" r="7"/><path d="M1410 675v26M1410 701l-8 19M1410 701l8 19M1400 686h20"/>
+  </g>
+  <!-- dimension line -->
+  <g stroke-width="0.8">
+    <path d="M240 790h900M240 780v20M1140 780v20M520 780v20"/>
+    <path d="M234 796l12-12M514 796l12-12M1134 796l12-12"/>
+  </g>
+</svg>
