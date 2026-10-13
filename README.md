@@ -5,7 +5,8 @@ Portfolio site for an architecture studio. Plain HTML, CSS and JS with no build 
 ## Structure
 
 ```
-index.html            Home: HUD frame, manifesto, plate, archive canvas,
+index.html            Landing: freehand circle test (draw a circle to enter)
+home.html             Home: HUD frame, manifesto, plate, archive canvas,
                       material & acoustic specimen deck, contact
 project.html          Case-study page. Copy it for each project
 assets/css/style.css  All styles. Colour tokens are at the top (light and dark)
@@ -18,9 +19,9 @@ images/work/          Placeholder line drawings
 
 ## Editing content
 
-- **Projects**: each row of the index in `index.html` (`#index`) links to a project page. Copy `project.html` (for example to `courtyard-house.html`), update the title, specs, text and images, then point the row's `href` at it.
+- **Projects**: each row of the index in `home.html` (`#index`) links to a project page. Copy `project.html` (for example to `courtyard-house.html`), update the title, specs, text and images, then point the row's `href` at it.
 - **Images**: see *Adding renders* below. The home plate and project cover use 16:9 and the project gallery uses 4:5. Index previews show each image at its own shape. Images are cropped to fit their frames.
-- **Contact**: replace `hello@example.com` and the `#` social links in `index.html`.
+- **Contact**: replace `hello@example.com` and the `#` social links in `home.html`.
 - **Theme**: dark by default. The toggle switches to a light sheet and remembers the choice in `localStorage`.
 
 ## Adding renders
